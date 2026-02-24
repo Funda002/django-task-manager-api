@@ -1,0 +1,7 @@
+<h1>Add New Task</h1>
+<form method="POST">
+    {% csrf_token %}  <!-- This is the Secret Handshake -->
+    {{ form.as_p }}   <!-- Django renders the form fields as paragraphs -->
+    <button type="submit">Save Task</button>
+</form>
+<a href="{% url 'task_list' %}">Cancel</a>

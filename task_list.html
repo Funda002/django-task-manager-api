@@ -1,0 +1,14 @@
+<h1>My Task Manager</h1>
+<a href="{% url 'task_create' %}">➕ Add New Task</a>
+<ul>
+    {% for task in tasks %}
+        <li>
+            <strong>{{ task.title }}</strong> - 
+            {% if task.completed %} ✅ Done {% else %} ❌ Pending {% endif %}
+            
+            <!-- NEW LINKS BELOW -->
+            | <a href="{% url 'task_update' task.id %}">Edit</a>
+            | <a href="{% url 'task_delete' task.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
